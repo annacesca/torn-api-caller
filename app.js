@@ -1,5 +1,6 @@
 const PROFILE_API = "https://torn-api-xi.vercel.app/api/profile";
 const TRAVEL_API = "https://torn-api-xi.vercel.app/api/travel";
+const RECO_WALLET_1_3 = "https://torn-api-xi.vercel.app/api/reco-money-1-3";
 
 let travelInterval;
 
@@ -302,10 +303,41 @@ function updateTravel(travel) {
 
 }
 
+async function loadRecommendations() {
+
+    try {
+
+        const response = await fetch(RECO_WALLET_1_3);
+
+        const data = await response.json();
+
+        if (data.length > 0)
+            $("reco1").textContent = `${data[0].destination} — ${data[0].item}`;
+
+        if (data.length > 1)
+            $("reco2").textContent = `${data[1].destination} — ${data[1].item}`;
+
+        if (data.length > 2)
+            $("reco3").textContent = `${data[2].destination} — ${data[2].item}`;
+
+    }
+    catch (err) {
+
+        console.error(err);
+
+        $("reco1").textContent = "Unable to load recommendations.";
+        $("reco2").textContent = "";
+        $("reco3").textContent = "";
+
+    }
+
+}
+
 $("refreshButton").addEventListener("click", () => {
 
     loadProfile();
     loadTravel();
+    loadRecommendations();
 
 });
 
