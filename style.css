@@ -403,6 +403,16 @@ BATTLE STATS
 
     grid-column:1 / -1;
 
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:18px 22px;
+
+    border-radius:14px;
+
 }
 
 .total-stat h4{
