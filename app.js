@@ -1,4 +1,7 @@
-const API = "https://torn-api-xi.vercel.app/api/profile";
+const PROFILE_API = "https://torn-api-xi.vercel.app/api/profile";
+const TRAVEL_API = "https://torn-api-xi.vercel.app/api/travel";
+
+let travelInterval;
 
 const $ = (id) => document.getElementById(id);
 
@@ -27,7 +30,7 @@ async function loadProfile() {
 
     try {
 
-        const response = await fetch(API);
+        const response = await fetch(PROFILE_API);
 
         if (!response.ok)
             throw new Error("Unable to contact API.");
@@ -228,9 +231,85 @@ async function loadProfile() {
 
 }
 
-$("refreshButton").addEventListener(
-    "click",
-    loadProfile
-);
+async function loadTravel() {
+
+    try {
+
+        const response = await fetch(TRAVEL_API);
+
+        const data = await response.json();
+
+        startTravelTimer(data.travel);
+
+    }
+    catch(err){
+
+        console.error(err);
+
+    }
+
+}
+
+function startTravelTimer(travel) {
+
+    if (travelInterval)
+        clearInterval(travelInterval);
+
+    updateTravel(travel);
+
+    travelInterval = setInterval(() => {
+
+        updateTravel(travel);
+
+    },1000);
+
+}
+
+function updateTravel(travel) {
+
+    const now = Math.floor(Date.now()/1000);
+
+    const remaining = travel.timestamp - now;
+
+    const activity = document.getElementById("activityList");
+
+    if(remaining <= 0){
+
+        clearInterval(travelInterval);
+
+        activity.innerHTML = `
+            <li>
+                ✈️ Arrived in ${travel.destination}
+            </li>
+        `;
+
+        return;
+
+    }
+
+    const hours = Math.floor(remaining/3600);
+
+    const minutes = Math.floor((remaining%3600)/60);
+
+    const seconds = remaining%60;
+
+    activity.innerHTML = `
+        <li>
+            ✈️ Traveling to <strong>${travel.destination}</strong><br>
+            ETA: ${hours}h ${minutes}m ${seconds}s
+        </li>
+    `;
+
+}
+
+$("refreshButton").addEventListener("click", () => {
+
+    loadProfile();
+    loadTravel();
+
+});
+
+
 
 loadProfile();
+loadTravel();
