@@ -160,16 +160,16 @@ async function loadProfile() {
         //------------------------
 
         $("strength").textContent =
-            formatNumber(data.strength);
+            formatNumber(data.personalstats.strength);
 
         $("speed").textContent =
-            formatNumber(data.speed);
+            formatNumber(data.personalstats.speed);
 
         $("dexterity").textContent =
-            formatNumber(data.dexterity);
+            formatNumber(data.personalstats.dexterity);
 
         $("defense").textContent =
-            formatNumber(data.defense);
+            formatNumber(data.personalstats.defense);
 
         //------------------------
         // ACTIVITY
