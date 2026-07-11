@@ -156,19 +156,6 @@ async function loadProfile() {
         );
 
         //------------------------
-        // MONEY
-        //------------------------
-
-        $("wallet").textContent =
-            formatMoney(data.money);
-
-        $("bank").textContent =
-            formatMoney(data.city_bank);
-
-        $("networth").textContent =
-            formatMoney(data.networth);
-
-        //------------------------
         // STATS
         //------------------------
 
