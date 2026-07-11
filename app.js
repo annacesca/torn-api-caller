@@ -345,3 +345,4 @@ $("refreshButton").addEventListener("click", () => {
 
 loadProfile();
 loadTravel();
+loadRecommendations();
