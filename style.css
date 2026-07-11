@@ -403,12 +403,6 @@ BATTLE STATS
 
     grid-column:1 / -1;
 
-    background:linear-gradient(
-        135deg,
-        #00d4ff,
-        #2563eb
-    );
-
 }
 
 .total-stat h4{
@@ -420,8 +414,6 @@ BATTLE STATS
 .total-stat p{
 
     color:white;
-
-    font-size:38px;
 
     font-weight:700;
 
