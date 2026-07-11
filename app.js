@@ -171,6 +171,9 @@ async function loadProfile() {
         $("defense").textContent =
             formatNumber(data.personalstats.defense);
 
+        $("totalstats").textContent =
+            formatNumber(data.personalstats.totalstats);
+
         //------------------------
         // ACTIVITY
         //------------------------
