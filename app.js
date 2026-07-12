@@ -303,41 +303,90 @@ function updateTravel(travel) {
 
 }
 
-async function loadRecommendations() {
+async function loadRecommendations(endpoint, title){
 
-    try {
+    $("recoTitle").textContent = title;
 
-        const response = await fetch(RECO_WALLET_1_3);
+    const response = await fetch(endpoint);
 
-        const data = await response.json();
+    const data = await response.json();
 
-        if (data.length > 0)
-            $("reco1").textContent = `${data[0].destination} — ${data[0].item}`;
+    $("reco1").textContent =
+        `🥇 ${data[0].destination} — ${data[0].item}`;
 
-        if (data.length > 1)
-            $("reco2").textContent = `${data[1].destination} — ${data[1].item}`;
+    $("reco2").textContent =
+        `🥈 ${data[1].destination} — ${data[1].item}`;
 
-        if (data.length > 2)
-            $("reco3").textContent = `${data[2].destination} — ${data[2].item}`;
-
-    }
-    catch (err) {
-
-        console.error(err);
-
-        $("reco1").textContent = "Unable to load recommendations.";
-        $("reco2").textContent = "";
-        $("reco3").textContent = "";
-
-    }
+    $("reco3").textContent =
+        `🥉 ${data[2].destination} — ${data[2].item}`;
 
 }
+
+const tabs=document.querySelectorAll(".reco-tab");
+
+tabs.forEach(tab=>{
+
+    tab.addEventListener("click",()=>{
+
+        tabs.forEach(t=>t.classList.remove("active"));
+
+        tab.classList.add("active");
+
+        switch(tab.dataset.tab){
+
+            case "fast":
+
+                loadRecommendations(
+
+                    "https://torn-api-xi.vercel.app/api/reco-fast-1-3",
+
+                    "⚡ Fastest Profit"
+
+                );
+
+                break;
+
+            case "wallet":
+
+                loadRecommendations(
+
+                    "https://torn-api-xi.vercel.app/api/reco-money-1-3",
+
+                    "💰 Based on Wallet"
+
+                );
+
+                break;
+
+            case "travel":
+
+                loadRecommendations(
+
+                    "https://torn-api-xi.vercel.app/api/reco-plushies-1-3",
+
+                    "🧸 Plushies & Flowers"
+
+                );
+
+                break;
+
+        }
+
+    });
+
+});
 
 $("refreshButton").addEventListener("click", () => {
 
     loadProfile();
     loadTravel();
-    loadRecommendations();
+    loadRecommendations(
+
+        "https://torn-api-xi.vercel.app/api/reco-fast-1-3",
+    
+        "⚡ Fastest Profit"
+    
+    );
 
 });
 
