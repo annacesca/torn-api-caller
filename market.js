@@ -366,3 +366,158 @@ function number(value) {
     return Number(value).toLocaleString();
 
 }
+
+// ===============================
+// Search
+// ===============================
+
+$("searchInput").addEventListener("input", applyFilters);
+
+$("categoryFilter").addEventListener("change", applyFilters);
+
+
+// ===============================
+// Filters
+// ===============================
+
+function applyFilters() {
+
+    const search =
+        $("searchInput").value
+            .toLowerCase()
+            .trim();
+
+    const category =
+        $("categoryFilter").value;
+
+    filteredData = marketData.filter(item => {
+
+        const matchesSearch =
+            item.item.toLowerCase().includes(search);
+
+        const matchesCategory =
+            category === "All" ||
+            item.category === category;
+
+        return matchesSearch && matchesCategory;
+
+    });
+
+    sortData(currentSort, sortAscending);
+
+    renderTable();
+
+}
+
+
+// ===============================
+// Sortable Headers
+// ===============================
+
+document
+    .querySelectorAll("#marketTable th")
+    .forEach(header => {
+
+        header.addEventListener("click", () => {
+
+            const field = header.dataset.sort;
+
+            if (!field)
+                return;
+
+            if (currentSort === field) {
+
+                sortAscending = !sortAscending;
+
+            }
+            else {
+
+                currentSort = field;
+
+                sortAscending = true;
+
+            }
+
+            updateSortIcons();
+
+            sortData(currentSort, sortAscending);
+
+            renderTable();
+
+        });
+
+    });
+
+
+// ===============================
+// Sorting
+// ===============================
+
+function sortData(field, asc = true) {
+
+    filteredData.sort((a, b) => {
+
+        let valueA = a[field];
+        let valueB = b[field];
+
+        if (typeof valueA === "string") {
+
+            valueA = valueA.toLowerCase();
+            valueB = valueB.toLowerCase();
+
+        }
+
+        if (valueA < valueB)
+            return asc ? -1 : 1;
+
+        if (valueA > valueB)
+            return asc ? 1 : -1;
+
+        return 0;
+
+    });
+
+}
+
+
+// ===============================
+// Sort Icons
+// ===============================
+
+function updateSortIcons() {
+
+    document
+        .querySelectorAll("#marketTable th")
+        .forEach(th => {
+
+            th.classList.remove(
+                "sort-asc",
+                "sort-desc"
+            );
+
+            if (th.dataset.sort === currentSort) {
+
+                th.classList.add(
+
+                    sortAscending
+                        ? "sort-asc"
+                        : "sort-desc"
+
+                );
+
+            }
+
+        });
+
+}
+
+
+// ===============================
+// Helpers
+// ===============================
+
+function refreshCurrentTab() {
+
+    loadMarket(currentMode);
+
+}
