@@ -313,14 +313,17 @@ async function loadRecommendations(endpoint, title){
 
     const top3 = data.slice(0, 3);
 
-    $("reco1").textContent =
-        `🥇 ${top3[0].destination} — ${top3[0].item}`;
-
-    $("reco2").textContent =
-        `🥈 ${top3[1].destination} — ${top3[1].item}`;
-
-    $("reco3").textContent =
-        `🥉 ${top3[2].destination} — ${top3[2].item}`;
+    $("reco1").textContent = top3[0]
+        ? `🥇 ${top3[0].destination} — ${top3[0].item}`
+        : "No recommendation";
+    
+    $("reco2").textContent = top3[1]
+        ? `🥈 ${top3[1].destination} — ${top3[1].item}`
+        : "";
+    
+    $("reco3").textContent = top3[2]
+        ? `🥉 ${top3[2].destination} — ${top3[2].item}`
+        : "";
 
 }
 
