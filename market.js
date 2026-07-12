@@ -5,11 +5,11 @@
 
 const API = {
 
-    fast: "https://torn-api-xi.vercel.app/api/reco-fast-1-3",
+    fast: "https://torn-api-xi.vercel.app/api/market-fast",
 
-    wallet: "https://torn-api-xi.vercel.app/api/reco-money-1-3",
+    wallet: "https://torn-api-xi.vercel.app/api/market-money",
 
-    travel: "https://torn-api-xi.vercel.app/api/reco-plushies-1-3"
+    travel: "https://torn-api-xi.vercel.app/api/market-plushies"
 
 };
 
