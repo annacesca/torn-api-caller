@@ -220,7 +220,6 @@ function renderTable() {
 
         `;
 
-        $("totalResults").textContent = "0";
 
         return;
 
