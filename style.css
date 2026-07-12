@@ -616,3 +616,40 @@ SCROLLBAR
     background:#111827;
 
 }
+
+
+.recommendation-tabs{
+    display:flex;
+    gap:8px;
+    margin-bottom:16px;
+}
+
+.reco-tab{
+
+    flex:1;
+
+    background:#1a1a1a;
+
+    color:#ccc;
+
+    border:1px solid #333;
+
+    border-radius:8px;
+
+    padding:10px;
+
+    cursor:pointer;
+
+    transition:.2s;
+
+}
+
+.reco-tab.active{
+
+    background:#00d4ff;
+
+    color:#000;
+
+    font-weight:bold;
+
+}
