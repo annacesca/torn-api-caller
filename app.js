@@ -311,14 +311,16 @@ async function loadRecommendations(endpoint, title){
 
     const data = await response.json();
 
+    const top3 = data.slice(0, 3);
+
     $("reco1").textContent =
-        `🥇 ${data[0].destination} — ${data[0].item}`;
+        `🥇 ${top3[0].destination} — ${top3[0].item}`;
 
     $("reco2").textContent =
-        `🥈 ${data[1].destination} — ${data[1].item}`;
+        `🥈 ${top3[1].destination} — ${top3[1].item}`;
 
     $("reco3").textContent =
-        `🥉 ${data[2].destination} — ${data[2].item}`;
+        `🥉 ${top3[2].destination} — ${top3[2].item}`;
 
 }
 
