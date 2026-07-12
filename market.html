@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Torn Companion | Market Explorer</title>
+
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="market.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- HEADER -->
+
+    <header class="page-header">
+
+        <div>
+
+            <h1>📈 Market Explorer</h1>
+
+            <p>
+                Compare the best foreign trading opportunities.
+            </p>
+
+        </div>
+
+        <button id="refreshBtn">
+
+            🔄 Refresh
+
+        </button>
+
+    </header>
+
+
+    <!-- MARKET MODES -->
+
+    <section class="card">
+
+        <div class="market-tabs">
+
+            <button
+                class="market-tab active"
+                data-mode="fast">
+
+                ⚡ Fastest
+
+            </button>
+
+            <button
+                class="market-tab"
+                data-mode="wallet">
+
+                💰 Wallet
+
+            </button>
+
+            <button
+                class="market-tab"
+                data-mode="travel">
+
+                🧸 Plushies & Flowers
+
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- FILTERS -->
+
+    <section class="card">
+
+        <div class="filters">
+
+            <div class="filter">
+
+                <label>
+
+                    Search
+
+                </label>
+
+                <input
+                    id="searchInput"
+                    type="text"
+                    placeholder="Search item...">
+
+            </div>
+
+            <div class="filter">
+
+                <label>
+
+                    Category
+
+                </label>
+
+                <select id="categoryFilter">
+
+                    <option value="All">
+
+                        All
+
+                    </option>
+
+                    <option value="Plushie">
+
+                        Plushies
+
+                    </option>
+
+                    <option value="Flower">
+
+                        Flowers
+
+                    </option>
+
+                    <option value="Drug">
+
+                        Drugs
+
+                    </option>
+
+                    <option value="Weapon">
+
+                        Weapons
+
+                    </option>
+
+                    <option value="Armor">
+
+                        Armor
+
+                    </option>
+
+                    <option value="Other">
+
+                        Other
+
+                    </option>
+
+                </select>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- STATUS BAR -->
+
+    <section class="market-info">
+
+        <div>
+
+            <strong id="marketTitle">
+
+                ⚡ Fastest (Profit / Minute)
+
+            </strong>
+
+        </div>
+
+        <div>
+
+            Last Updated:
+
+            <span id="lastUpdated">
+
+                --
+
+            </span>
+
+        </div>
+
+    </section>
+
+
+    <!-- TABLE -->
+
+    <section class="card">
+
+        <div class="table-container">
+
+            <table id="marketTable">
+
+                <thead>
+
+                <tr>
+
+                    <th data-sort="rank">
+
+                        #
+
+                    </th>
+
+                    <th data-sort="country">
+
+                        Country
+
+                    </th>
+
+                    <th data-sort="item">
+
+                        Item
+
+                    </th>
+
+                    <th data-sort="cost">
+
+                        Cost
+
+                    </th>
+
+                    <th data-sort="quantity">
+
+                        Qty
+
+                    </th>
+
+                    <th data-sort="totalCost">
+
+                        Total Cost
+
+                    </th>
+
+                    <th data-sort="stock">
+
+                        Stock
+
+                    </th>
+
+                    <th data-sort="travelTime">
+
+                        Travel
+
+                    </th>
+
+                    <th data-sort="tripProfit">
+
+                        Profit
+
+                    </th>
+
+                    <th data-sort="profitPerMinute">
+
+                        $ / Min
+
+                    </th>
+
+                </tr>
+
+                </thead>
+
+                <tbody id="marketBody">
+
+                <tr>
+
+                    <td colspan="10">
+
+                        Loading market...
+
+                    </td>
+
+                </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+
+    <!-- SUMMARY -->
+
+    <section class="market-summary">
+
+        <div class="summary-card">
+
+            <span>
+
+                Total Results
+
+            </span>
+
+            <h3 id="totalResults">
+
+                0
+
+            </h3>
+
+        </div>
+
+        <div class="summary-card">
+
+            <span>
+
+                Current Mode
+
+            </span>
+
+            <h3 id="currentMode">
+
+                Fastest
+
+            </h3>
+
+        </div>
+
+    </section>
+
+</div>
+
+
+<script src="market.js"></script>
+
+</body>
+
+</html>
