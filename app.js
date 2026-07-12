@@ -394,4 +394,10 @@ $("refreshButton").addEventListener("click", () => {
 
 loadProfile();
 loadTravel();
-loadRecommendations();
+    loadRecommendations(
+
+        "https://torn-api-xi.vercel.app/api/reco-fast-1-3",
+    
+        "⚡ Fastest Profit"
+    
+    );
