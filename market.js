@@ -160,6 +160,9 @@ function updateHeader() {
             $("marketTitle").textContent =
                 "⚡ Fastest (Profit / Minute)";
 
+            $("currentMode").textContent =
+                "Fastest";
+
             break;
 
         case "wallet":
@@ -167,12 +170,18 @@ function updateHeader() {
             $("marketTitle").textContent =
                 "💰 Wallet Recommendation";
 
+            $("currentMode").textContent =
+                "Wallet";
+
             break;
 
         case "travel":
 
             $("marketTitle").textContent =
                 "🧸 Plushies & Flowers";
+
+            $("currentMode").textContent =
+                "Plushies";
 
             break;
 
@@ -220,6 +229,7 @@ function renderTable() {
 
         `;
 
+        $("totalResults").textContent = "0";
 
         return;
 
