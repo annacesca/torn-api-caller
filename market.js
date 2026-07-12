@@ -77,7 +77,7 @@ function setupTabs() {
 
 function setupRefresh() {
 
-    $("refreshBtn").addEventListener("click", () => {
+    $("refreshButton").addEventListener("click", () => {
 
         loadMarket(currentMode);
 
