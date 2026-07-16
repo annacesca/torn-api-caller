@@ -1,6 +1,6 @@
 const PROFILE_API = "https://torn-api-xi.vercel.app/api/profile";
 const TRAVEL_API = "https://torn-api-xi.vercel.app/api/travel";
-const RECO_WALLET_1_3 = "https://torn-api-xi.vercel.app/api/reco-money-1-3";
+const RECO_WALLET_1_3 = "https://torn-api-xi.vercel.app/api/market-money";
 
 let travelInterval;
 
@@ -343,7 +343,7 @@ tabs.forEach(tab=>{
 
                 loadRecommendations(
 
-                    "https://torn-api-xi.vercel.app/api/reco-fast-1-3",
+                    "https://torn-api-xi.vercel.app/api/market-fast",
 
                     "⚡ Fastest Profit"
 
@@ -355,7 +355,7 @@ tabs.forEach(tab=>{
 
                 loadRecommendations(
 
-                    "https://torn-api-xi.vercel.app/api/reco-money-1-3",
+                    "https://torn-api-xi.vercel.app/api/market-money",
 
                     "💰 Based on Wallet"
 
@@ -367,7 +367,7 @@ tabs.forEach(tab=>{
 
                 loadRecommendations(
 
-                    "https://torn-api-xi.vercel.app/api/reco-plushies-1-3",
+                    "https://torn-api-xi.vercel.app/api/market-plushies",
 
                     "🧸 Plushies & Flowers"
 
@@ -387,7 +387,7 @@ $("refreshButton").addEventListener("click", () => {
     loadTravel();
     loadRecommendations(
 
-        "https://torn-api-xi.vercel.app/api/reco-fast-1-3",
+        "https://torn-api-xi.vercel.app/api/market-fast",
     
         "⚡ Fastest Profit"
     
@@ -401,7 +401,7 @@ loadProfile();
 loadTravel();
     loadRecommendations(
 
-        "https://torn-api-xi.vercel.app/api/reco-fast-1-3",
+        "https://torn-api-xi.vercel.app/api/market-fast",
     
         "⚡ Fastest Profit"
     
